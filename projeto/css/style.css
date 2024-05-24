@@ -25,6 +25,7 @@ body {
     justify-content: space-between; 
     align-items: center;
     flex-wrap: wrap;
+}
 
 .name {
     color: #68B2F8; 
@@ -75,4 +76,44 @@ body {
     font-weight: 500; 
     line-height: 24px; 
     word-wrap: break-word;
+}
+
+.sections {
+    display: flex;
+    width: 500px;
+    height: 95px;
+    padding: 6px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+    margin-top: 100px;
+}
+
+.first-section{
+    color: white; 
+    font-size: 40px; 
+    font-family: "Lato", sans-serif; 
+    font-weight: 500; 
+    word-wrap: break-word;
+}
+
+.content-section {
+    display: flex;
+    justify-content: center;
+}
+
+.about {
+    margin-top: 100px;
+    display: flex;
+}
+
+.apresentation {
+    padding-left: 50px;
+}
+
+.links-about {
+    justify-content: flex-start;
 }
