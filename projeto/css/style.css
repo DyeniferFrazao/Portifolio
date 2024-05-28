@@ -20,7 +20,7 @@ body {
     );
 }
 
-
+/*primeira parte*/
 .content-header {
     width: 100%;
     margin: 0 auto; /* Centraliza o conteúdo */
@@ -127,6 +127,7 @@ body {
     transform: translateX(150%);
 }
 
+/*segunda parte*/
 .second-section{
     color: white; 
     font-size: 40px; 
@@ -155,6 +156,7 @@ body {
     margin-bottom: 30px;
 }
 
+/*responsividade*/
 @media (max-width: 1200px) {
     .block {
         flex: 1 1 calc(50% - 40px); /* Cada bloco ocupa metade da largura menos o espaçamento */
@@ -184,7 +186,7 @@ body {
     margin-top: 100px;
 }
 
- /* temporario */ 
+ /* footer */ 
  .contact-form {
     width: 100%;
     background-color: #1d0c20;
