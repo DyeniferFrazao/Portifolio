@@ -14,12 +14,12 @@ html, body {
 body {
     background: linear-gradient(
         180deg, 
-        rgba(29, 12, 32, 0.70) 6%, 
+        #1d0c20 7%, 
         rgba(112, 55, 205, 0.30) 46.5%, 
         #651F71 99%
     );
+    scroll-behavior: smooth;
 }
-
 /*primeira parte*/
 .content-header {
     width: 100%;
@@ -59,6 +59,11 @@ body {
     word-wrap: break-word;
 }
 
+.buttons a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .button-contact {
     padding-left: 24px; 
     padding-right: 24px; 
@@ -83,6 +88,10 @@ body {
     word-wrap: break-word;
 }
 
+.firstcontact-me a {
+    color: inherit;
+    text-decoration: none;
+}
 .sections {
     display: flex;
     width: 500px;
@@ -111,21 +120,137 @@ body {
 }
 
 .about {
-    margin-top: 100px;
     display: flex;
-
+    justify-content: space-between; /* Ensures space between the two items */
+    align-items: center; /* Aligns items vertically centered */
+    flex-wrap: wrap; /* Ensures it wraps on smaller screens */
+    margin-top: 100px;
+    padding: 0 20px; /* Adds some padding to the sides */
 }
 
 .apresentation {
-    padding-left: 50px;
+    flex: 1 1 45%; /* Takes up to 45% of the width */
+    display: flex;
+    justify-content: center;
+}
+
+.my-resume {
+    max-width: 100%; /* Ensures image doesn't overflow its container */
+    height: auto;
 }
 
 .links-about {
+    flex: 1 1 45%; /* Takes up to 45% of the width */
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
     flex-direction: column;
-    transform: translateX(150%);
+    align-items: center;
+    justify-content: center; /* Centers items vertically */
+    gap: 20px; /* Space between the items */
+}
+
+
+/*medias primeira parte*/
+
+@media (max-width: 1200px) {
+    .content-header {
+        padding: 20px 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .apresentation, .links-about {
+        transform: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .links-about {
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-header {
+        padding: 10px 20px;
+    }
+
+    .name {
+        font-size: 28px;
+    }
+
+    .buttons {
+        font-size: 18px;
+    }
+
+    .button-contact {
+        padding: 10px 20px;
+    }
+
+    .firstcontact-me {
+        font-size: 14px;
+    }
+
+    .sections {
+        width: 80%;
+        margin-top: 50px;
+    }
+
+    .first-section {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-header {
+        padding: 10px;
+    }
+
+    .name {
+        font-size: 24px;
+    }
+
+    .buttons {
+        font-size: 16px;
+    }
+
+    .button-contact {
+        padding: 8px 16px;
+    }
+
+    .firstcontact-me {
+        font-size: 12px;
+    }
+
+    .sections {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .first-section {
+        font-size: 24px;
+    }
+
+    .about {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .apresentation, .links-about {
+        width: 100%;
+        padding: 0;
+        transform: none;
+    }
+
+    .links-about {
+        justify-content: center;
+        margin-top: 20px;
+    }
 }
 
 /*segunda parte*/
