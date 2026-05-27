@@ -228,3 +228,105 @@
         }
     });
 })();
+
+/* ── GitHub Projects ── */
+(function initProjects() {
+    const grid = document.getElementById('projectsGrid');
+    if (!grid) return;
+
+    /* Mapeamento de linguagem → cor */
+    const langColors = {
+        'JavaScript': '#f7df1e',
+        'TypeScript': '#3178c6',
+        'HTML':       '#e34c26',
+        'CSS':        '#563d7c',
+        'Python':     '#3572A5',
+        'C#':         '#178600',
+        'Dart':       '#00B4AB',
+        'Java':       '#b07219',
+        'Kotlin':     '#A97BFF',
+        'Swift':      '#F05138',
+        'Jupyter Notebook': '#DA5B0B',
+    };
+
+    /* Descrições e ícones de fallback */
+    const fallbackRepos = [
+        {
+            name: 'MindCracker',
+            description: 'Jogo de memória desenvolvido com Unity e C# — desafie sua mente!',
+            language: 'C#',
+            html_url: 'https://github.com/DyeniferFrazao/MindCracker',
+            stargazers_count: 0,
+            topics: ['unity', 'game', 'csharp'],
+        },
+        {
+            name: 'SpaceMarker',
+            description: 'Jogo espacial criado com Python e PyGame — explore o universo em pixels.',
+            language: 'Python',
+            html_url: 'https://github.com/DyeniferFrazao/SpaceMarker',
+            stargazers_count: 0,
+            topics: ['python', 'pygame', 'game'],
+        },
+        {
+            name: 'Portifolio',
+            description: 'Portfólio pessoal com design glassmorphism, animações e tema purple/code.',
+            language: 'HTML',
+            html_url: 'https://github.com/DyeniferFrazao/Portifolio',
+            stargazers_count: 0,
+            topics: ['html', 'css', 'javascript', 'portfolio'],
+        },
+    ];
+
+    function langIcon(lang) {
+        const icons = {
+            'C#': '🎮', 'Python': '🐍', 'HTML': '🌐',
+            'JavaScript': '⚡', 'TypeScript': '🔷',
+            'CSS': '🎨', 'Dart': '🎯', 'Java': '☕',
+            'Kotlin': '💜', 'Swift': '🍎',
+            'Jupyter Notebook': '📓',
+        };
+        return icons[lang] || '💻';
+    }
+
+    function renderCards(repos) {
+        grid.innerHTML = '';
+        repos.forEach(repo => {
+            const color = langColors[repo.language] || '#68B2F8';
+            const icon  = langIcon(repo.language);
+            const desc  = repo.description || 'Repositório no GitHub';
+            const tags  = (repo.topics || []).slice(0, 3)
+                .map(t => `<span class="proj-tag">${t}</span>`).join('');
+
+            const card = document.createElement('article');
+            card.className = 'proj-card';
+            card.innerHTML = `
+                <div class="proj-card-top">
+                    <span class="proj-icon">${icon}</span>
+                    <a class="proj-link" href="${repo.html_url}" target="_blank" rel="noopener">
+                        ↗
+                    </a>
+                </div>
+                <h3 class="proj-name">${repo.name}</h3>
+                <p class="proj-desc">${desc}</p>
+                <div class="proj-footer">
+                    <span class="proj-lang">
+                        <span class="proj-lang-dot" style="background:${color}"></span>
+                        ${repo.language || 'Code'}
+                    </span>
+                    <div class="proj-tags">${tags}</div>
+                </div>`;
+            grid.appendChild(card);
+        });
+    }
+
+    /* Tenta a API do GitHub; usa fallback se falhar */
+    fetch('https://api.github.com/users/DyeniferFrazao/repos?sort=updated&per_page=12')
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(repos => {
+            const filtered = repos.filter(r =>
+                !r.fork && r.name !== 'DyeniferFrazao'
+            );
+            renderCards(filtered.length ? filtered : fallbackRepos);
+        })
+        .catch(() => renderCards(fallbackRepos));
+})();
