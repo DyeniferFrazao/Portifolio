@@ -192,3 +192,39 @@
         easing:   'cubic-bezier(0.4, 0, 0.2, 1)',
     });
 })();
+
+/* ── Terminal Bio — editável e persistente ── */
+(function initBio() {
+    const bio  = document.getElementById('bioOutput');
+    const hint = document.getElementById('bioEditHint');
+    if (!bio) return;
+
+    const STORAGE_KEY = 'shelly_bio_v1';
+
+    /* Restaura edições anteriores (preserva innerHTML com os spans coloridos) */
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) bio.innerHTML = saved;
+    } catch {}
+
+    /* Salva ao sair do campo */
+    bio.addEventListener('blur', () => {
+        try { localStorage.setItem(STORAGE_KEY, bio.innerHTML); } catch {}
+    });
+
+    /* Esconde o hint durante a edição */
+    bio.addEventListener('focus', () => {
+        if (hint) hint.style.opacity = '0';
+    });
+    bio.addEventListener('blur', () => {
+        if (hint) hint.style.opacity = '1';
+    });
+
+    /* Impede Enter de criar <div> — usa <br> em vez disso */
+    bio.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            document.execCommand('insertLineBreak');
+        }
+    });
+})();

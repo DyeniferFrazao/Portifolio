@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dyênifer Frazão — Shelly</title>
-    <meta name="description" content="Portfólio de Dyênifer Frazão (Shelly) — Desenvolvedora Full Stack, UX/UI Designer e entusiasta de Data Science.">
+    <meta name="description" content="Portfólio de Dyênifer Frazão (Shelly) — Analista de Dados, UX/UI Designer e entusiasta do vibe coding">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,8 +89,52 @@
 
         <div class="about-inner">
             <div class="apresentation reveal-left">
-                <div class="img-glow-wrapper">
-                    <img class="my-resume" src="img/Frame 1.png" alt="Dyênifer Frazão" />
+                <div class="terminal-card">
+                    <!-- Top bar macOS -->
+                    <div class="terminal-topbar">
+                        <div class="terminal-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <span class="terminal-title">dyenifer@frazao — bash</span>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="terminal-body">
+
+                        <!-- ls -->
+                        <p class="t-prompt-line">
+                            <span class="t-user">dyenifer@frazao</span><span class="t-colon">:</span><span class="t-path">~/portifolio</span><span class="t-dollar"> $</span><span class="t-cmd"> ls -la</span>
+                        </p>
+                        <div class="t-ls-output">
+                            <span class="t-file-dir">projetos/</span>
+                            <span class="t-file-json">skills.json</span>
+                            <span class="t-file-txt">Apresentacao.txt</span>
+                            <span class="t-file-hidden">.sonhos</span>
+                        </div>
+
+                        <!-- cat Apresentacao.txt -->
+                        <p class="t-prompt-line">
+                            <span class="t-user">dyenifer@frazao</span><span class="t-colon">:</span><span class="t-path">~/portifolio</span><span class="t-dollar"> $</span><span class="t-cmd"> cat Apresentacao.txt</span>
+                        </p>
+
+                        <!-- Bio — clicável e editável -->
+                        <div class="bio-output" id="bioOutput" contenteditable="true" spellcheck="false" title="clique para editar">
+                            <p>Popularmente conhecida como <span class="bio-name">Shelly</span>, tenho 20 anos e curso Ciência da Computação na Fundação Universidade de Passo Fundo.</p>
+                            <br>
+                            <p>Estou <span class="bio-seek">buscando uma oportunidade na área</span> de tecnologia, pela qual sou apaixonada. Sendo nova, tenho experiência com desenvolvimento front-end, e certa familiaridade e grande admiração por DataScience, Cybersecurity, Design UX/UI e GameDev.</p>
+                            <br>
+                            <p class="bio-closing">Procuro me desenvolver com ideias geniais e pessoas incríveis. 🚀</p>
+                        </div>
+
+                        <div class="bio-edit-hint" id="bioEditHint">✏️ clique no texto para editar</div>
+
+                        <!-- Cursor final -->
+                        <p class="t-prompt-line">
+                            <span class="t-user">dyenifer@frazao</span><span class="t-colon">:</span><span class="t-path">~/portifolio</span><span class="t-dollar"> $</span><span class="t-terminal-cursor">█</span>
+                        </p>
+                    </div>
                 </div>
             </div>
 

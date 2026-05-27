@@ -1095,3 +1095,187 @@ footer {
     .cursor-dot,
     .cursor-ring { display: none; }
 }
+
+/* ═══════════════════════════════════════════════════
+   TERMINAL TODO CARD
+═══════════════════════════════════════════════════ */
+.terminal-card {
+    background: #13111c;
+    border: 1px solid rgba(104, 178, 248, 0.13);
+    border-radius: 14px;
+    overflow: hidden;
+    font-family: var(--font-code);
+    width: 100%;
+    max-width: 500px;
+    box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: box-shadow 0.4s;
+}
+
+.terminal-card:hover {
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(101, 31, 113, 0.22),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* — Barra superior macOS — */
+.terminal-topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    background: #1d1a2e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    user-select: none;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 7px;
+}
+
+.dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    transition: filter 0.2s, transform 0.2s;
+}
+
+.dot:hover {
+    filter: brightness(1.25);
+    transform: scale(1.12);
+}
+
+.dot-red    { background: #ff5f57; box-shadow: 0 0 4px rgba(255, 95, 87, 0.4); }
+.dot-yellow { background: #febc2e; box-shadow: 0 0 4px rgba(254, 188, 46, 0.4); }
+.dot-green  { background: #28c840; box-shadow: 0 0 4px rgba(40, 200, 64, 0.4); }
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.28);
+    letter-spacing: 0.02em;
+}
+
+/* — Corpo do terminal — */
+.terminal-body {
+    padding: 18px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 300px;
+}
+
+/* — Linha de prompt — */
+.t-prompt-line {
+    font-size: 13px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1px;
+}
+
+.t-user   { color: #a6e3a1; font-weight: 600; }
+.t-colon  { color: rgba(255, 255, 255, 0.3); }
+.t-path   { color: #89b4fa; }
+.t-dollar { color: rgba(255, 255, 255, 0.45); padding-left: 2px; }
+.t-cmd    { color: #cdd6f4; padding-left: 4px; }
+
+/* Cursor piscando */
+.t-terminal-cursor {
+    color: var(--accent-blue);
+    margin-left: 3px;
+    animation: blink 1s step-end infinite;
+}
+
+/* — ls output — */
+.t-ls-output {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 2px 0 4px;
+    font-size: 13px;
+}
+
+.t-file-dir    { color: #89b4fa; font-weight: 600; }
+.t-file-json   { color: #a6e3a1; }
+.t-file-txt    { color: #cdd6f4; }
+.t-file-hidden { color: rgba(255, 255, 255, 0.25); font-style: italic; }
+
+/* — Bio editável — */
+.bio-output {
+    font-family: var(--font-code);
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: rgba(205, 214, 244, 0.82);
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 8px 10px;
+    cursor: text;
+    transition: border-color 0.25s, background 0.25s;
+    word-break: break-word;
+    position: relative;
+}
+
+.bio-output:hover {
+    border-color: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.bio-output:focus {
+    border-color: rgba(104, 178, 248, 0.22);
+    background: rgba(104, 178, 248, 0.03);
+    caret-color: var(--accent-blue);
+}
+
+/* Destaques da bio */
+.bio-name {
+    color: #fab387;      /* laranja — mesmo estilo original */
+    font-weight: 700;
+}
+
+.bio-seek {
+    color: #f38ba8;      /* vermelho/rosa suave */
+    font-style: italic;
+}
+
+.bio-closing {
+    color: #fab387;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Hint de edição */
+.bio-edit-hint {
+    font-family: var(--font-code);
+    font-size: 10.5px;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.06em;
+    text-align: right;
+    margin-top: -6px;
+    transition: opacity 0.3s;
+    user-select: none;
+}
+
+.bio-output:focus ~ .bio-edit-hint,
+.bio-output:focus + .bio-edit-hint {
+    opacity: 0;
+}
+
+/* — Responsivo — */
+@media (max-width: 1100px) {
+    .terminal-card {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .bio-output { font-size: 12.5px; }
+}
