@@ -3,208 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyênifer Frazão — Shelly</title>
+    <meta name="description" content="Portfólio de Dyênifer Frazão (Shelly) — Desenvolvedora Full Stack, UX/UI Designer e entusiasta de Data Science.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Lato:wght@300;400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- ScrollReveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />    
-    <title>
-        Shelly
-    </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
-    <header>
+
+    <!-- ── Barra de progresso de scroll ── -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ── Custom Cursor ── -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ══════════════════════════════════════
+         HEADER
+    ══════════════════════════════════════ -->
+    <header id="header">
         <div class="content-header">
             <div class="name">
-                Dyênifer Frazão
+                <span class="name-bracket">&lt;</span>Shelly<span class="name-bracket">/&gt;</span>
             </div>
-            <div class="navigation">
-                <div class="buttons">
-                    <a href="#about">
-                        Sobre
-                    </a>
-                </div>
-                <div class="buttons">
-                    <a href="#information">
-                        Informação
-                    </a>
-                </div>
+
+            <nav class="navigation" id="navigation">
+                <div class="buttons"><a href="#about">Sobre</a></div>
+                <div class="buttons"><a href="#information">Conhecimentos</a></div>
+                <div class="buttons"><a href="#abilities">Habilidades</a></div>
                 <div class="button-contact">
-                    <div class="firstcontact-me">
-                        <a href="#contactme">
-                            Contact Me
-                        </a>
-                    </div>
+                    <a href="#contactme">Contact Me</a>
                 </div>
-            </div>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
-    <section class="content-section">
-        <div class="sections">
-            <div class="first-section">
-                <h1 id="text">
-                    Olá !
-                </h1>
+
+    <!-- ══════════════════════════════════════
+         HERO
+    ══════════════════════════════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="star-field"></div>
+            <div class="hero-orb hero-orb--1"></div>
+            <div class="hero-orb hero-orb--2"></div>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-greeting">Olá, eu sou</p>
+            <h1 class="hero-name">Dyênifer Frazão</h1>
+            <div class="hero-role">
+                <span class="role-prefix">// </span><span id="typewriter"></span><span class="cursor-blink">|</span>
+            </div>
+            <div class="hero-actions">
+                <a href="#about" class="btn-primary">Me conheça</a>
+                <a href="#contactme" class="btn-outline">Fale comigo</a>
             </div>
         </div>
+
+        <div class="hero-scroll-hint">
+            <span>scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
     </section>
+
+    <!-- ══════════════════════════════════════
+         SOBRE
+    ══════════════════════════════════════ -->
     <section id="about" class="about">
-        <div class="apresentation">
-            <img class="my-resume" src="img/Frame 1.png" />
-        </div>
-        <div class="links-about">
-            <div>
-                <img src="img/seta.png">
-                <a href="https://www.linkedin.com/in/dyenifer-frazao">
-                    <img src="img/linkedin.png">
-                </a>
+        <div class="section-label">// sobre</div>
+
+        <div class="about-inner">
+            <div class="apresentation reveal-left">
+                <div class="img-glow-wrapper">
+                    <img class="my-resume" src="img/Frame 1.png" alt="Dyênifer Frazão" />
+                </div>
             </div>
-            <div>
-                <img src="img/seta.png">
-                <a href="https://github.com/DyeniferFrazao">
-                    <img src="img/github.png">
-                </a>
-            </div>
-            <div>
-                <img src="img/seta.png">
-                <a href="mailto:thaimint04@gmail.com">
-                    <img src="img/email.png">
-                </a>
-            </div>
-            <div>
-                <img src="img/seta.png">
-                <a href="https://wa.me/5554991158914">
-                    <img src="img/whatsapp.png">
-                </a>
-            </div>
-            <div>
-                <img src="img/seta.png">
-                <a href="https://www.instagram.com/ishellyy_/">
-                    <img src="img/instagram.png">
-                </a>
+
+            <div class="about-text reveal-right">
+                <h2 class="section-title">Sobre mim</h2>
+                <p class="about-description">
+                    Desenvolvedora apaixonada por tecnologia, design e resolução de problemas.
+                    Combino habilidades técnicas em desenvolvimento web e ciência de dados
+                    com criatividade em UX/UI para criar soluções completas, funcionais e impactantes.
+                </p>
+                <div class="links-about">
+                    <a class="social-link" href="https://www.linkedin.com/in/dyenifer-frazao" target="_blank" rel="noopener" title="LinkedIn">
+                        <img src="img/linkedin.png" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a class="social-link" href="https://github.com/DyeniferFrazao" target="_blank" rel="noopener" title="GitHub">
+                        <img src="img/github.png" alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                    <a class="social-link" href="mailto:thaimint04@gmail.com" title="Email">
+                        <img src="img/email.png" alt="Email">
+                        <span>Email</span>
+                    </a>
+                    <a class="social-link" href="https://wa.me/5554991158914" target="_blank" rel="noopener" title="WhatsApp">
+                        <img src="img/whatsapp.png" alt="WhatsApp">
+                        <span>WhatsApp</span>
+                    </a>
+                    <a class="social-link" href="https://www.instagram.com/ishellyy_/" target="_blank" rel="noopener" title="Instagram">
+                        <img src="img/instagram.png" alt="Instagram">
+                        <span>Instagram</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
-    <section class="content-section">
-        <div class="sections">
-            <div class="first-section">
-                <h1 id="information">
-                    "Conhecimentos": [
-                </h1>
-            </div>
+
+    <!-- ══════════════════════════════════════
+         CONHECIMENTOS
+    ══════════════════════════════════════ -->
+    <section id="information" class="knowledge-section">
+        <div class="section-label">// conhecimentos</div>
+        <div class="section-header">
+            <h2 class="section-title">"Conhecimentos": [</h2>
         </div>
-    </section>
-    <section class="knowledge">
-        <div>
+
+        <div class="knowledge-grid">
+
             <div class="block">
+                <div class="block-tag">01</div>
                 <div class="text-blocks">
-                    “Linguagens”:{<br/>
-                        “HTML”,<br/>
-                        “CSS”,<br/>
-                        “Python”,<br/>
-                        “JavaScript”,<br/>
-                        “R”,<br/>
-                        “TypeScript”<br/>
-                    }
+                    <span class="json-key">"Linguagens"</span><span class="json-bracket">: &#123;</span><br>
+                    <span class="json-val">&nbsp;&nbsp;"HTML"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"CSS"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"Python"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"JavaScript"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"TypeScript"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"R"</span><br>
+                    <span class="json-bracket">&#125;</span>
                 </div>
             </div>
+
             <div class="block">
+                <div class="block-tag">02</div>
                 <div class="text-blocks">
-                    “Bibliotecas”:{<br/>
-                        “Pandas”,<br/>
-                        “NumPy”,<br/>
-                        “PyGame”,<br/>
-                        “React”,<br/>
-                        “ReactNative”<br/>
-                    }
+                    <span class="json-key">"Bibliotecas"</span><span class="json-bracket">: &#123;</span><br>
+                    <span class="json-val">&nbsp;&nbsp;"Pandas"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"NumPy"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"PyGame"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"React"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"React Native"</span><br>
+                    <span class="json-bracket">&#125;</span>
                 </div>
             </div>
+
             <div class="block">
+                <div class="block-tag">03</div>
                 <div class="text-blocks">
-                    “Tecnologias”:{<br/>
-                        “GitHub”,<br/>
-                        “AWS”,<br/>
-                        “Figma”<br/>
-                    }
+                    <span class="json-key">"Tecnologias"</span><span class="json-bracket">: &#123;</span><br>
+                    <span class="json-val">&nbsp;&nbsp;"GitHub"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"AWS"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"Figma"</span><br>
+                    <span class="json-bracket">&#125;</span>
                 </div>
             </div>
-        </div>
-        <div>
+
             <div class="block">
+                <div class="block-tag">04</div>
                 <div class="text-blocks">
-                    “SO”:{<br/>
-                        “Windows”,<br/>
-                        “Linux”: [“Ubuntu”,<br/>
-                        “Ubuntu server”,<br/>
-                        “Kali”]<br/>
-                    }
+                    <span class="json-key">"SO"</span><span class="json-bracket">: &#123;</span><br>
+                    <span class="json-val">&nbsp;&nbsp;"Windows"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"Linux"</span>: [<br>
+                    <span class="json-val">&nbsp;&nbsp;&nbsp;&nbsp;"Ubuntu"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;&nbsp;&nbsp;"Ubuntu Server"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;&nbsp;&nbsp;"Kali"</span><br>
+                    &nbsp;&nbsp;]<br>
+                    <span class="json-bracket">&#125;</span>
                 </div>
             </div>
+
             <div class="block">
+                <div class="block-tag">05</div>
                 <div class="text-blocks">
-                    “Frameworks”: {<br/>
-                        “React”,<br/>
-                        “Node.js”<br/>
-                    }
+                    <span class="json-key">"Frameworks"</span><span class="json-bracket">: &#123;</span><br>
+                    <span class="json-val">&nbsp;&nbsp;"React"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"Node.js"</span><br>
+                    <span class="json-bracket">&#125;</span>
                 </div>
             </div>
+
             <div class="block">
+                <div class="block-tag">06</div>
                 <div class="text-blocks">
-                    “Mais alguns conhecimentos”:{<br/>
-                        “Redes”,<br/>
-                        “Hardware”,<br/>
-                        “Cloud”,<br/>
-                        “UX/UI”,<br/>
-                        “Marketing”,<br/>
-                        “Pacote Office”,<br/>
-                        “CorelDraw”<br/>
-                    }</br>
+                    <span class="json-key">"Outros"</span><span class="json-bracket">: &#123;</span><br>
+                    <span class="json-val">&nbsp;&nbsp;"Redes"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"Hardware"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"Cloud"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"UX/UI"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"Marketing"</span>,<br>
+                    <span class="json-val">&nbsp;&nbsp;"CorelDraw"</span><br>
+                    <span class="json-bracket">&#125;</span><br>
                     ]
                 </div>
             </div>
+
         </div>
     </section>
-    <section class="content-section">
-        <div class="sections">
-            <div class="first-section">
-                <h1>
-                    Habilidades
-                </h1>
+
+    <!-- ══════════════════════════════════════
+         HABILIDADES
+    ══════════════════════════════════════ -->
+    <section id="abilities" class="abilities-section">
+        <div class="section-label">// habilidades</div>
+        <div class="section-header">
+            <h2 class="section-title">Habilidades</h2>
+        </div>
+
+        <div class="abilities-grid">
+
+            <div class="ability-card">
+                <div class="ability-icon">🌐</div>
+                <h3 class="ability-title">Idiomas</h3>
+                <div class="ability-tags">
+                    <span class="tag">Português — Nativo</span>
+                    <span class="tag tag-highlight">Inglês — C1 Proficiente</span>
+                </div>
             </div>
+
+            <div class="ability-card">
+                <div class="ability-icon">⚡</div>
+                <h3 class="ability-title">Metodologias Ágeis</h3>
+                <div class="ability-tags">
+                    <span class="tag">Scrum</span>
+                    <span class="tag">Kanban</span>
+                </div>
+            </div>
+
+            <div class="ability-card">
+                <div class="ability-icon">✨</div>
+                <h3 class="ability-title">Soft Skills</h3>
+                <div class="ability-tags">
+                    <span class="tag">Comunicação</span>
+                    <span class="tag">Empatia</span>
+                    <span class="tag">Organização</span>
+                    <span class="tag">Criatividade</span>
+                    <span class="tag">Ética</span>
+                    <span class="tag">Colaboração</span>
+                    <span class="tag">Proatividade</span>
+                </div>
+            </div>
+
         </div>
     </section>
-    <section class="abilities">
-        <div>
-            <div class="block">
-                <div class="text-blocks">
-                    <div>Idiomas</br></div>
-                    <span>Inglês- Proeficiente C1</span>
-                </div>
-            </div>
-            <div class="block">
-                <div class="text-blocks">
-                    <div>Metodologias Ágeis</br></div>
-                    <ul>Scrum</ul>
-                    <ul>Kanbam</ul>
-                </div>
-            </div>
-            <div class="block">
-                <div class="text-blocks">
-                    <div>SoftSkills</br></div>
-                    <ul>Comunicação</ul>
-                    <ul>Empatia</ul>
-                    <ul>Organização</ul>
-                    <ul>Criatividade</ul>
-                    <ul>Ética</ul>
-                    <ul>Colaboração</ul>
-                    <ul>Proatividade</ul>
-                </div>
-            </div>
-        </div>
-    </section>
+
+    <!-- ══════════════════════════════════════
+         FOOTER / CONTACT
+    ══════════════════════════════════════ -->
     <footer id="contactme">
         <div class="contact-form">
-            <div class="headline">
-                <b class="contact-me">Contact me</b>
-            </div>
+            <div class="section-label light">// contato</div>
+            <b class="contact-me">Contact me</b>
+
             <form class="form" action="https://formsubmit.co/thaimint04@gmail.com" method="POST">
                 <div class="input">
                     <label for="first-name" class="primeiro-nome">Primeiro nome</label>
@@ -218,32 +285,41 @@
                     <label for="email" class="primeiro-nome">Seu melhor email</label>
                     <input type="email" id="email" name="email" class="field" placeholder="email@dominio.com" required>
                 </div>
-                <div class="input">
+                <div class="input full-width">
                     <label for="message" class="primeiro-nome">Mensagem</label>
-                    <input id="message" name="message" class="field" placeholder="Deixe aqui sua mensagem" required></input>
+                    <textarea id="message" name="message" class="field field-textarea" placeholder="Deixe aqui sua mensagem" rows="4" required></textarea>
                 </div>
-                <button type="submit" class="button submit">Submit</button>
+                <button type="submit" class="button submit">Enviar Mensagem</button>
             </form>
+
             <div class="social-icons-container">
-                <a href="https://www.linkedin.com/in/dyenifer-frazao">
-                    <img class="social-icons" alt="linkedin icon" src="img/linkedin.png">
+                <a class="social-footer-link" href="https://www.linkedin.com/in/dyenifer-frazao" target="_blank" rel="noopener" title="LinkedIn">
+                    <img class="social-icons" alt="LinkedIn" src="img/linkedin.png">
                 </a>
-                <a href="https://github.com/iShellyX">
-                    <img class="social-icons" alt="github icon" src="img/github.png">
+                <a class="social-footer-link" href="https://github.com/iShellyX" target="_blank" rel="noopener" title="GitHub">
+                    <img class="social-icons" alt="GitHub" src="img/github.png">
                 </a>
-                <a href="mailto:thaimint04@gmail.com">
-                    <img class="social-icons" alt="email icon" src="img/email.png">
+                <a class="social-footer-link" href="mailto:thaimint04@gmail.com" title="Email">
+                    <img class="social-icons" alt="Email" src="img/email.png">
                 </a>
-                <a href="https://wa.me/5554991158914">
-                    <img class="social-icons" alt="whatsapp icon" src="img/whatsapp.png">
+                <a class="social-footer-link" href="https://wa.me/5554991158914" target="_blank" rel="noopener" title="WhatsApp">
+                    <img class="social-icons" alt="WhatsApp" src="img/whatsapp.png">
                 </a>
-                <a href="https://www.instagram.com/ishellyy_/">
-                    <img class="social-icons" alt="instagram icon" src="img/instagram.png">
+                <a class="social-footer-link" href="https://www.instagram.com/ishellyy_/" target="_blank" rel="noopener" title="Instagram">
+                    <img class="social-icons" alt="Instagram" src="img/instagram.png">
                 </a>
             </div>
+
+            <div class="footer-copy">
+                <span>© 2025 Dyênifer Frazão &nbsp;—&nbsp; feito com </span><span class="heart">♥</span><span> e muito código</span>
+            </div>
+        </div>
     </footer>
-    
-    <script src="js/scroll_script.js" defer></script>
-    <script src="js/written_script.js" defer></script>
+
+    <!-- Botão scroll-to-top -->
+    <button class="scroll-top" id="scrollTop" title="Voltar ao topo">↑</button>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
 </body>
 </html>
