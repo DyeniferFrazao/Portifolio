@@ -58,7 +58,7 @@
     <!-- ══════════════════════════════════════
          HERO
     ══════════════════════════════════════ -->
-    <section class="hero" id="hero">
+    <section class="hero fp-section" id="hero" data-label="Início">
         <div class="hero-bg">
             <div class="star-field"></div>
             <div class="hero-orb hero-orb--1"></div>
@@ -86,7 +86,7 @@
     <!-- ══════════════════════════════════════
          SOBRE
     ══════════════════════════════════════ -->
-    <section id="about" class="about">
+    <section id="about" class="about fp-section" data-label="Sobre">
         <div class="section-label">// sobre</div>
 
         <div class="about-inner">
@@ -121,16 +121,14 @@
                             <span class="t-user">dyenifer@frazao</span><span class="t-colon">:</span><span class="t-path">~/portifolio</span><span class="t-dollar"> $</span><span class="t-cmd"> cat Apresentacao.txt</span>
                         </p>
 
-                        <!-- Bio — clicável e editável -->
-                        <div class="bio-output" id="bioOutput" contenteditable="true" spellcheck="false" title="clique para editar">
+                        <!-- Bio -->
+                        <div class="bio-output" id="bioOutput">
                             <p>Popularmente conhecida como <span class="bio-name">Shelly</span>, tenho 21 anos e curso Ciência da Computação na  Universidade de Passo Fundo.</p>
                             <br>
                             <p>Estou <span class="bio-seek">buscando sempre uma oportunidade de crescimento na área</span> de tecnologia, pela qual sou apaixonada. Apesar de ainda estar engatinhando nesse mundo cheio de novidades, tenho experiência real com desenvolvimento front-end, mobile e DataAnalytics; certa familiaridade e  grande admiração por, Cybersecurity, Design UX/UI, GameDev, Sociologia e psicologia aplicada na área tecnológica -bem como suas projeções futuras, e um grande interesse pela atual Corrida Quântica!!.</p>
                             <br>
                             <p class="bio-closing">Procuro me desenvolver com ideias geniais e pessoas incríveis. 🚀</p>
                         </div>
-
-                        <div class="bio-edit-hint" id="bioEditHint">✏️ clique no texto para editar</div>
 
                         <!-- Cursor final -->
                         <p class="t-prompt-line">
@@ -172,21 +170,12 @@
             </div>
         </div>
 
-        <!-- ── Navegação entre seções ── -->
-        <div class="section-nav">
-            <span class="section-nav-label">explore →</span>
-            <a href="#experience" class="section-nav-pill">Formação</a>
-            <a href="#information" class="section-nav-pill">Conhecimentos</a>
-            <a href="#abilities" class="section-nav-pill">Habilidades</a>
-            <a href="#projects" class="section-nav-pill">Projetos</a>
-            <a href="#contactme" class="section-nav-pill section-nav-pill--cta">Contact Me ↗</a>
-        </div>
     </section>
 
     <!-- ══════════════════════════════════════
          FORMAÇÃO & EXPERIÊNCIA
     ══════════════════════════════════════ -->
-    <section id="experience" class="experience-section">
+    <section id="experience" class="experience-section fp-section" data-label="Formação">
         <div class="section-label">// formação & trajetória</div>
         <div class="section-header">
             <h2 class="section-title">Experiência</h2>
@@ -225,20 +214,18 @@
                 </div>
             </div>
 
-            <!-- Aprendizado Contínuo -->
-            <div class="exp-card">
+            <!-- GitHub Stats — dinâmico via API -->
+            <div class="exp-card exp-card--github" id="githubStatsCard">
                 <div class="exp-card-header">
-                    <span class="exp-icon">📚</span>
-                    <span class="exp-type">Aprendizado Contínuo</span>
+                    <span class="exp-icon">🐙</span>
+                    <span class="exp-type">GitHub — dados ao vivo</span>
                 </div>
-                <ul class="learning-list">
-                    <li><span class="learning-dot"></span>Front-end & Mobile com React e React Native</li>
-                    <li><span class="learning-dot"></span>Análise de dados com Python — Pandas, NumPy</li>
-                    <li><span class="learning-dot"></span>UX/UI Design com Figma</li>
-                    <li><span class="learning-dot"></span>Game Dev com Unity (C#) e PyGame</li>
-                    <li><span class="learning-dot"></span>Cloud Computing com AWS</li>
-                    <li><span class="learning-dot"></span>Inglês — C1 Proficiente</li>
-                </ul>
+                <div class="gh-stats" id="ghStats">
+                    <span class="gh-loading"><span class="t-terminal-cursor">█</span> buscando…</span>
+                </div>
+                <a class="gh-profile-link" href="https://github.com/DyeniferFrazao" target="_blank" rel="noopener">
+                    ver perfil completo ↗
+                </a>
             </div>
 
         </div>
@@ -247,7 +234,7 @@
     <!-- ══════════════════════════════════════
          CONHECIMENTOS
     ══════════════════════════════════════ -->
-    <section id="information" class="knowledge-section">
+    <section id="information" class="knowledge-section fp-section" data-label="Conhecimentos">
         <div class="section-label">// conhecimentos</div>
         <div class="section-header">
             <h2 class="section-title">"Conhecimentos": [</h2>
@@ -338,7 +325,7 @@
     <!-- ══════════════════════════════════════
          HABILIDADES
     ══════════════════════════════════════ -->
-    <section id="abilities" class="abilities-section">
+    <section id="abilities" class="abilities-section fp-section" data-label="Habilidades">
         <div class="section-label">// habilidades</div>
         <div class="section-header">
             <h2 class="section-title">Habilidades</h2>
@@ -384,15 +371,24 @@
     <!-- ══════════════════════════════════════
          PROJETOS GITHUB
     ══════════════════════════════════════ -->
-    <section id="projects" class="projects-section">
+    <section id="projects" class="projects-section fp-section" data-label="Projetos">
         <div class="section-label">// projetos</div>
         <div class="section-header">
             <h2 class="section-title">Projetos no GitHub</h2>
             <a href="https://github.com/DyeniferFrazao" target="_blank" rel="noopener" class="section-link">ver todos ↗</a>
         </div>
 
+        <!-- Filtro de linguagem -->
+        <div class="proj-filters" id="projFilters">
+            <button class="proj-filter active" data-lang="all">Todos</button>
+            <button class="proj-filter" data-lang="JavaScript">JS</button>
+            <button class="proj-filter" data-lang="Python">Python</button>
+            <button class="proj-filter" data-lang="HTML">HTML</button>
+            <button class="proj-filter" data-lang="C#">C#</button>
+            <button class="proj-filter" data-lang="Dart">Dart</button>
+        </div>
+
         <div class="projects-grid" id="projectsGrid">
-            <!-- Preenchido via JS — fallback hardcoded caso a API falhe -->
             <div class="projects-loading">
                 <span class="t-terminal-cursor">█</span> carregando repos…
             </div>
@@ -402,7 +398,7 @@
     <!-- ══════════════════════════════════════
          FOOTER / CONTACT
     ══════════════════════════════════════ -->
-    <footer id="contactme">
+    <footer id="contactme" class="fp-section" data-label="Contato">
         <div class="contact-form">
             <div class="section-label light">// contato</div>
             <b class="contact-me">Contact me</b>
@@ -451,8 +447,18 @@
         </div>
     </footer>
 
-    <!-- Botão scroll-to-top -->
-    <button class="scroll-top" id="scrollTop" title="Voltar ao topo">↑</button>
+    <!-- ── Navegação fullpage — dots laterais ── -->
+    <nav class="page-dots" id="pageDots" aria-label="Navegação por seções"></nav>
+
+    <!-- ── Setas prev/next ── -->
+    <div class="page-arrows">
+        <button class="page-arrow page-arrow--up hidden" id="arrowPrev" aria-label="Seção anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+        <button class="page-arrow page-arrow--down" id="arrowNext" aria-label="Próxima seção">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+    </div>
 
     <!-- Scripts -->
     <script src="js/main.js" defer></script>
