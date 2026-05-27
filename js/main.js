@@ -51,11 +51,11 @@
     if (!el) return;
 
     const roles = [
-        'Desenvolvedora Full Stack',
+        'Analista de Dados',
         'UX/UI Designer',
-        'Análise de Dados com Python',
+        'Dev front-end / mobile',
+        'Entusiasta das novas tecnologias',
         'Criadora de Experiências Digitais',
-        'Engenheira de Soluções',
     ];
 
     let roleIndex = 0;

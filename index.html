@@ -38,8 +38,10 @@
 
             <nav class="navigation" id="navigation">
                 <div class="buttons"><a href="#about">Sobre</a></div>
+                <div class="buttons"><a href="#experience">Formação</a></div>
                 <div class="buttons"><a href="#information">Conhecimentos</a></div>
                 <div class="buttons"><a href="#abilities">Habilidades</a></div>
+                <div class="buttons"><a href="#projects">Projetos</a></div>
                 <div class="button-contact">
                     <a href="#contactme">Contact Me</a>
                 </div>
@@ -121,9 +123,9 @@
 
                         <!-- Bio — clicável e editável -->
                         <div class="bio-output" id="bioOutput" contenteditable="true" spellcheck="false" title="clique para editar">
-                            <p>Popularmente conhecida como <span class="bio-name">Shelly</span>, tenho 20 anos e curso Ciência da Computação na Fundação Universidade de Passo Fundo.</p>
+                            <p>Popularmente conhecida como <span class="bio-name">Shelly</span>, tenho 21 anos e curso Ciência da Computação na  Universidade de Passo Fundo.</p>
                             <br>
-                            <p>Estou <span class="bio-seek">buscando uma oportunidade na área</span> de tecnologia, pela qual sou apaixonada. Sendo nova, tenho experiência com desenvolvimento front-end, e certa familiaridade e grande admiração por DataScience, Cybersecurity, Design UX/UI e GameDev.</p>
+                            <p>Estou <span class="bio-seek">buscando sempre uma oportunidade de crescimento na área</span> de tecnologia, pela qual sou apaixonada. Apesar de ainda estar engatinhando nesse mundo cheio de novidades, tenho experiência real com desenvolvimento front-end, mobile e DataAnalytics; certa familiaridade e  grande admiração por, Cybersecurity, Design UX/UI, GameDev, Sociologia e psicologia aplicada na área tecnológica -bem como suas projeções futuras, e um grande interesse pela atual Corrida Quântica!!.</p>
                             <br>
                             <p class="bio-closing">Procuro me desenvolver com ideias geniais e pessoas incríveis. 🚀</p>
                         </div>
@@ -168,6 +170,77 @@
                     </a>
                 </div>
             </div>
+        </div>
+
+        <!-- ── Navegação entre seções ── -->
+        <div class="section-nav">
+            <span class="section-nav-label">explore →</span>
+            <a href="#experience" class="section-nav-pill">Formação</a>
+            <a href="#information" class="section-nav-pill">Conhecimentos</a>
+            <a href="#abilities" class="section-nav-pill">Habilidades</a>
+            <a href="#projects" class="section-nav-pill">Projetos</a>
+            <a href="#contactme" class="section-nav-pill section-nav-pill--cta">Contact Me ↗</a>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         FORMAÇÃO & EXPERIÊNCIA
+    ══════════════════════════════════════ -->
+    <section id="experience" class="experience-section">
+        <div class="section-label">// formação & trajetória</div>
+        <div class="section-header">
+            <h2 class="section-title">Experiência</h2>
+        </div>
+
+        <div class="exp-grid">
+
+            <!-- Formação Acadêmica -->
+            <div class="exp-card">
+                <div class="exp-card-header">
+                    <span class="exp-icon">🎓</span>
+                    <span class="exp-type">Formação Acadêmica</span>
+                </div>
+                <div class="exp-period">2022 → Presente</div>
+                <h3 class="exp-title">Ciência da Computação</h3>
+                <p class="exp-org">Fundação Universidade de Passo Fundo — UFPF</p>
+                <p class="exp-desc">Cursando, com foco em desenvolvimento de software, estruturas de dados, redes e análise de dados.</p>
+            </div>
+
+            <!-- Open to Work -->
+            <div class="exp-card exp-card--highlight">
+                <div class="exp-card-header">
+                    <span class="exp-icon">💼</span>
+                    <span class="exp-type">Situação Profissional</span>
+                </div>
+                <div class="otw-badge">
+                    <span class="otw-dot"></span>
+                    Open to Work
+                </div>
+                <p class="exp-desc">Disponível para estágio ou primeira experiência nas áreas de tecnologia que me apaixonam.</p>
+                <div class="ability-tags" style="margin-top:16px">
+                    <span class="tag">Dev Web</span>
+                    <span class="tag">Data Science</span>
+                    <span class="tag">UX/UI</span>
+                    <span class="tag">Game Dev</span>
+                </div>
+            </div>
+
+            <!-- Aprendizado Contínuo -->
+            <div class="exp-card">
+                <div class="exp-card-header">
+                    <span class="exp-icon">📚</span>
+                    <span class="exp-type">Aprendizado Contínuo</span>
+                </div>
+                <ul class="learning-list">
+                    <li><span class="learning-dot"></span>Front-end & Mobile com React e React Native</li>
+                    <li><span class="learning-dot"></span>Análise de dados com Python — Pandas, NumPy</li>
+                    <li><span class="learning-dot"></span>UX/UI Design com Figma</li>
+                    <li><span class="learning-dot"></span>Game Dev com Unity (C#) e PyGame</li>
+                    <li><span class="learning-dot"></span>Cloud Computing com AWS</li>
+                    <li><span class="learning-dot"></span>Inglês — C1 Proficiente</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
@@ -305,6 +378,24 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         PROJETOS GITHUB
+    ══════════════════════════════════════ -->
+    <section id="projects" class="projects-section">
+        <div class="section-label">// projetos</div>
+        <div class="section-header">
+            <h2 class="section-title">Projetos no GitHub</h2>
+            <a href="https://github.com/DyeniferFrazao" target="_blank" rel="noopener" class="section-link">ver todos ↗</a>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Preenchido via JS — fallback hardcoded caso a API falhe -->
+            <div class="projects-loading">
+                <span class="t-terminal-cursor">█</span> carregando repos…
+            </div>
         </div>
     </section>
 
