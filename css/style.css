@@ -82,12 +82,21 @@ body {
     scroll-snap-align: start;
     scroll-snap-stop: always;
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;          /* conteúdo longo acessível via scroll interno */
+    overflow-x: hidden;
     box-sizing: border-box;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+/* Seções com conteúdo potencialmente mais longo */
+.projects-section,
+.knowledge-section,
+#contactme {
+    justify-content: flex-start;
+    padding-top: 60px;
 }
 
 /* ── Page Dots — navegação lateral fixa ── */

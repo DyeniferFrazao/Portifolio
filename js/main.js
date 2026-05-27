@@ -179,90 +179,62 @@
 })();
 
 /* ══════════════════════════════════════════════════════════
-   FULLPAGE NAVIGATION — dots laterais + setas + teclado
+   FULLPAGE NAVIGATION
+   O CSS scroll-snap cuida do snap entre seções.
+   O JS só gerencia: dots, setas, teclado e sincronização do índice.
+   Sem interceptação de wheel/touch — isso causava problemas de UX.
 ══════════════════════════════════════════════════════════ */
 (function initFullPage() {
-    const sections = Array.from(document.querySelectorAll('.fp-section'));
+    const sections  = Array.from(document.querySelectorAll('.fp-section'));
+    const arrowPrev = document.getElementById('arrowPrev');
+    const arrowNext = document.getElementById('arrowNext');
+    const dotsEl    = document.getElementById('pageDots');
     if (!sections.length) return;
 
     let current  = 0;
-    let locked   = false;
-    const LOCK_MS = 800;
+    let animating = false; // evita cliques duplos rápidos
 
-    /* Navega para a seção pelo índice */
-    function goTo(idx, instant) {
-        if (idx < 0 || idx >= sections.length) return;
-        if (locked && !instant) return;
-
-        locked  = true;
-        current = idx;
-        sections[current].scrollIntoView({ behavior: instant ? 'auto' : 'smooth', block: 'start' });
+    /* ── Navega para a seção idx ── */
+    function goTo(idx) {
+        if (idx < 0 || idx >= sections.length || animating) return;
+        animating = true;
+        current   = idx;
+        sections[current].scrollIntoView({ behavior: 'smooth', block: 'start' });
         updateUI();
-        setTimeout(() => { locked = false; }, LOCK_MS);
+        setTimeout(() => { animating = false; }, 750);
     }
 
-    /* ── Wheel — bloqueia scroll livre, navega por seção ── */
-    window.addEventListener('wheel', (e) => {
-        /* Permite scroll interno se a seção tiver overflow-y: auto */
-        const sec = sections[current];
-        const overflows = sec.scrollHeight > sec.clientHeight;
-        if (overflows) {
-            const atBottom = sec.scrollTop + sec.clientHeight >= sec.scrollHeight - 4;
-            const atTop    = sec.scrollTop <= 1;
-            if (e.deltaY > 0 && !atBottom) return; // ainda tem conteúdo abaixo
-            if (e.deltaY < 0 && !atTop)    return; // ainda tem conteúdo acima
-        }
-        e.preventDefault();
-        goTo(current + (e.deltaY > 0 ? 1 : -1));
-    }, { passive: false });
-
-    /* ── Touch swipe ── */
-    let touchStartY = 0;
-    window.addEventListener('touchstart', e => {
-        touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    window.addEventListener('touchend', e => {
-        const dy = touchStartY - e.changedTouches[0].clientY;
-        if (Math.abs(dy) > 50) goTo(current + (dy > 0 ? 1 : -1));
-    }, { passive: true });
-
-    /* ── Teclado ── */
-    window.addEventListener('keydown', e => {
+    /* ── Teclado (PageUp/Down e setas) ── */
+    document.addEventListener('keydown', e => {
         if (['ArrowDown', 'PageDown'].includes(e.key)) { e.preventDefault(); goTo(current + 1); }
         if (['ArrowUp',   'PageUp'  ].includes(e.key)) { e.preventDefault(); goTo(current - 1); }
     });
 
-    /* ── Links âncora do nav ── */
+    /* ── Links do nav header ── */
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             const target = document.querySelector(link.getAttribute('href'));
             const idx    = sections.indexOf(target);
-            if (idx !== -1) {
-                e.preventDefault();
-                goTo(idx, false);
-            }
+            if (idx !== -1) { e.preventDefault(); goTo(idx); }
         });
     });
 
-    /* ── Dots de navegação ── */
-    const dotsEl = document.getElementById('pageDots');
+    /* ── Dots laterais ── */
     if (dotsEl) {
         sections.forEach((sec, i) => {
             const btn = document.createElement('button');
             btn.className = 'page-dot' + (i === 0 ? ' active' : '');
             btn.title     = sec.dataset.label || `Seção ${i + 1}`;
-            btn.addEventListener('click', () => goTo(i, false));
+            btn.addEventListener('click', () => goTo(i));
             dotsEl.appendChild(btn);
         });
     }
 
-    /* ── Setas prev/next ── */
-    const arrowPrev = document.getElementById('arrowPrev');
-    const arrowNext = document.getElementById('arrowNext');
-    arrowPrev?.addEventListener('click', () => goTo(current - 1, false));
-    arrowNext?.addEventListener('click', () => goTo(current + 1, false));
+    /* ── Setas ── */
+    arrowPrev?.addEventListener('click', () => goTo(current - 1));
+    arrowNext?.addEventListener('click', () => goTo(current + 1));
 
-    /* ── Atualiza UI ── */
+    /* ── Atualiza dots e setas ── */
     function updateUI() {
         document.querySelectorAll('.page-dot').forEach((d, i) =>
             d.classList.toggle('active', i === current)
@@ -271,17 +243,20 @@
         arrowNext?.classList.toggle('hidden', current >= sections.length - 1);
     }
 
-    /* ── IntersectionObserver para sincronizar ao usar scroll do nav header ── */
+    /* ── IntersectionObserver — sincroniza índice quando o CSS snap acontece ── */
     const io = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && !locked) {
+            if (entry.isIntersecting) {
                 const idx = sections.indexOf(entry.target);
-                if (idx !== -1) { current = idx; updateUI(); }
+                if (idx !== -1 && idx !== current) {
+                    current = idx;
+                    updateUI();
+                }
             }
         });
-    }, { threshold: 0.55 });
-    sections.forEach(s => io.observe(s));
+    }, { threshold: 0.6, rootMargin: '0px' });
 
+    sections.forEach(s => io.observe(s));
     updateUI();
 })();
 
