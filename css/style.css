@@ -514,6 +514,18 @@ header.scrolled {
     50%       { opacity: 0; }
 }
 
+/* Tagline de posicionamento */
+.hero-tagline {
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 1.6vw, 16px);
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: -30px auto 36px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 0.7s ease forwards 0.8s;
+}
+
 /* Botões hero */
 .hero-actions {
     display: flex;
@@ -522,6 +534,44 @@ header.scrolled {
     flex-wrap: wrap;
     opacity: 0;
     animation: fadeInUp 0.7s ease forwards 0.9s;
+}
+
+/* Faixa de números rápidos */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 46px;
+    opacity: 0;
+    animation: fadeInUp 0.7s ease forwards 1.1s;
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 20px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    min-width: 108px;
+}
+
+.hero-stat-num {
+    font-family: var(--font-code);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-blue);
+}
+
+.hero-stat-label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    letter-spacing: 0.02em;
 }
 
 .btn-primary {
@@ -630,6 +680,15 @@ header.scrolled {
     margin-bottom: 20px;
 }
 
+.section-subtitle {
+    font-family: var(--font-code);
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    flex-basis: 100%;
+    text-align: center;
+}
+
 /* ═══════════════════════════════════════════════════
    SOBRE
 ═══════════════════════════════════════════════════ */
@@ -704,6 +763,54 @@ header.scrolled {
     color: var(--text-secondary);
 }
 
+/* Bloco "atualmente" */
+.currently-block {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+}
+
+.currently-label {
+    display: block;
+    font-family: var(--font-code);
+    font-size: 11px;
+    color: var(--purple-mid);
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    margin-bottom: 10px;
+}
+
+.currently-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.currently-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+}
+
+.currently-dot {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    box-shadow: 0 0 8px rgba(104, 178, 248, 0.6);
+    animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+}
+
 /* Links sociais */
 .links-about {
     display: flex;
@@ -772,7 +879,21 @@ header.scrolled {
     padding: 20px 18px;
     overflow: hidden;
     transition: var(--transition);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
 }
+
+/* Entrada escalonada — puro CSS, não depende de nenhuma lib externa
+   nem de detecção de scroll (por isso sempre aparece, mesmo local). */
+.block:nth-child(1) { animation-delay: 0.05s; }
+.block:nth-child(2) { animation-delay: 0.10s; }
+.block:nth-child(3) { animation-delay: 0.15s; }
+.block:nth-child(4) { animation-delay: 0.20s; }
+.block:nth-child(5) { animation-delay: 0.25s; }
+.block:nth-child(6) { animation-delay: 0.30s; }
+.block:nth-child(7) { animation-delay: 0.35s; }
+.block:nth-child(8) { animation-delay: 0.40s; }
+.block:nth-child(9) { animation-delay: 0.45s; }
 
 /* Linha colorida no topo ao hover */
 .block::before {
@@ -841,7 +962,13 @@ header.scrolled {
     border-radius: var(--radius-lg);
     padding: 32px 28px;
     transition: var(--transition);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
 }
+
+.ability-card:nth-child(1) { animation-delay: 0.05s; }
+.ability-card:nth-child(2) { animation-delay: 0.15s; }
+.ability-card:nth-child(3) { animation-delay: 0.25s; }
 
 .ability-card:hover {
     border-color: rgba(104, 178, 248, 0.22);
@@ -1211,6 +1338,15 @@ footer {
     .hero-actions {
         flex-direction: column;
         align-items: center;
+    }
+
+    .hero-stats {
+        gap: 10px;
+    }
+
+    .hero-stat {
+        min-width: 84px;
+        padding: 10px 14px;
     }
 
     .btn-primary,

@@ -2,6 +2,18 @@
    main.js — Portfólio Dyênifer Frazão (Shelly)
 ═══════════════════════════════════════════════════ */
 
+/* ── Easter egg no console (para quem for curioso o suficiente) ── */
+(function consoleWhoami() {
+    console.log(
+        '%c$ whoami',
+        'font-family: monospace; color: #b39dcc; font-size: 13px;'
+    );
+    console.log(
+        '%cDyênifer Frazão — "Shelly"\nCiência da Computação · BI & Dados · Cybersecurity · Dev\n\nCuriosa por natureza. Analítica por profissão.\n→ github.com/DyeniferFrazao\n→ linkedin.com/in/dyenifer-frazao',
+        'font-family: monospace; color: #68B2F8; font-size: 13px; line-height: 1.6;'
+    );
+})();
+
 /* ── Custom Cursor ── */
 (function initCursor() {
     const dot  = document.getElementById('cursorDot');
@@ -51,11 +63,11 @@
     if (!el) return;
 
     const roles = [
-        'Analista de Dados',
-        'UX/UI Designer',
+        'Ciência da Computação',
+        'Business Intelligence & Dados',
+        'Cybersecurity',
         'Dev front-end / mobile',
-        'Entusiasta das novas tecnologias',
-        'Criadora de Experiências Digitais',
+        'UX/UI Designer',
     ];
 
     let roleIndex = 0;
@@ -153,30 +165,12 @@
     targets.forEach(el => observer.observe(el));
 })();
 
-/* ── ScrollReveal para cards ── */
-(function initScrollReveal() {
-    if (typeof ScrollReveal === 'undefined') return;
-
-    const sr = ScrollReveal({ reset: false });
-
-    sr.reveal('.block', {
-        origin:   'bottom',
-        distance: '28px',
-        duration: 620,
-        delay:    80,
-        interval: 90,
-        easing:   'cubic-bezier(0.4, 0, 0.2, 1)',
-    });
-
-    sr.reveal('.ability-card', {
-        origin:   'bottom',
-        distance: '28px',
-        duration: 620,
-        delay:    80,
-        interval: 110,
-        easing:   'cubic-bezier(0.4, 0, 0.2, 1)',
-    });
-})();
+/* Nota: a revelação de .block / .ability-card era feita via ScrollReveal
+   (biblioteca externa via CDN). Foi removida porque, combinada com o
+   scroll-snap fullpage do site, a lib às vezes nunca detectava os elementos
+   como "visíveis" — deixando essas seções permanentemente com opacity:0.
+   A revelação agora é feita só em CSS (ver .block / .ability-card em
+   style.css), sem depender de nenhuma lib externa ou de scroll detection. */
 
 /* ══════════════════════════════════════════════════════════
    FULLPAGE NAVIGATION
